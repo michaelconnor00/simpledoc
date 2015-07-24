@@ -1,15 +1,5 @@
 #!/usr/bin/env python
 
-"""Docs to Markdown, simple
-
-Usage:
-    simpledoc.py (-path <path> | -file <filename>)
-
-Options:
-    --path <path>                           Path to the objects to be documented
-    --file <version-file>                   Version file name [default: config.ini]
-"""
-import re
 import os
 import sys
 import inspect
@@ -196,17 +186,17 @@ def gather_docstrings(doc):
             class_methods = inspect.getmembers(c[1], inspect.ismethod)
             class_functions = inspect.getmembers(c[1], inspect.isfunction)
             docstring_list.append(
-                DocString(h2(c[0]) + trim(c[1].__doc__), 'class')
+                DocString(h1(c[0]) + trim(c[1].__doc__), 'class')
             )
             for m in class_methods:
                 if m[0] == '__init__':
                     continue
-                title = h3(c[0] + '.' + m[0])
+                title = h2(c[0] + '.' + m[0])
                 docstring_list.append(
                     DocString(title + trim(m[1].__doc__), 'class_method')
                 )
             for f in class_functions:
-                title = h3(c[0] + '.' + f[0])
+                title = h2(c[0] + '.' + f[0])
                 docstring_list.append(
                     DocString(title + trim(f[1].__doc__), 'function')
                 )
@@ -215,7 +205,7 @@ def gather_docstrings(doc):
     if doc.include_class_methods:
         methods = inspect.getmembers(doc.module, inspect.ismethod)
         for m in methods:
-            title = h2(doc.name[0].capitalize() + doc.name[1:] + '.' + m[0])
+            title = h1(doc.name[0].capitalize() + doc.name[1:] + '.' + m[0])
             docstring_list.append(
                 DocString(title + trim(m[1].__doc__), 'class_method')
             )
@@ -223,7 +213,7 @@ def gather_docstrings(doc):
     if doc.include_functions:
         functions = inspect.getmembers(doc.module, inspect.isfunction)
         for f in functions:
-            title = h2(doc.name[0].capitalize() + doc.name[1:] + '.' + f[0])
+            title = h1(doc.name[0].capitalize() + doc.name[1:] + '.' + f[0])
             docstring_list.append(
                 DocString(title + trim(f[1].__doc__), 'function')
             )
@@ -250,9 +240,9 @@ def run(options, arguments, configs):
     # print 'PKGS: ', [(x.name, x.package, x.is_package) for x in PACKAGES]
     # print 'TO_DOC: ', [(x.name, x.package, x.is_package) for x in OBJECTS_TO_DOCUMENT]
 
-    for opt, val in options:
-        # Look for options here
-        overwrite = True if opt == '--overwrite' else False
+    # for opt, val in options:
+    #     # Look for options here
+    #     overwrite = True if opt == '--overwrite' else False
 
     previous_filename = None
     for doc in OBJECTS_TO_DOCUMENT:
@@ -307,7 +297,7 @@ if __name__ == '__main__':
     try:
         configs.read(config_path)
     except Exception as e:
-        raise e  # TODO seems to fail silently
+        raise e  # TODO seems to fail silently if config_path doesn't exist
 
     # Scripts don't get the current directory in their path by default
     if '' not in sys.path:
