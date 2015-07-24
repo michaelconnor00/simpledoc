@@ -5,6 +5,8 @@ This is where you define controllers for your api
 > Blockquotes are very handy in email to emulate reply text.
 > This line is part of the same quote.
 
+That was important
+
 """
 
 def simple_function(stuff):
@@ -20,7 +22,12 @@ class BaseController(object):
 
     Use this class for writing controllers and other stuff
     * Cool Features
+        - Like this
+        - and this
+        - and this
     * Stable
+        - Kind of
+        - Don't break it
     * Fast
 
     **Optional**: use it for the staticmethod only
@@ -60,11 +67,30 @@ class BaseController(object):
 class MyController(BaseController):
     """
     Sub class of the Base class
+
+    Go to this Link for more details on this design: [click here](https://www.google.com)
+
     """
 
     def some_method(self):
         """
         Method to extend the base class
+
+        Sample Output
+        ```json
+        {"menu": {
+          "id": "file",
+          "value": "File",
+          "popup": {
+            "menuitem": [
+              {"value": "New", "onclick": "CreateNewDoc()"},
+              {"value": "Open", "onclick": "OpenDoc()"},
+              {"value": "Close", "onclick": "CloseDoc()"}
+            ]
+          }
+        }}
+        ```
+
         :return:
         """
         raise NotImplemented
