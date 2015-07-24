@@ -1,5 +1,5 @@
 # SimpleDoc
-**_This is a Concpet Only_**
+**_This is a Concept Only_**
 
 Simpledoc is tool to create markdown (.md) files from your projects docstrings. The only requirments are to have a config file and and simpledoc installed. Then running the command will traverse your project modules and pull all the docstrings.
 
@@ -16,7 +16,8 @@ document_name = README.md
 ```
 
 Then run the simpledoc command.
-```
+
+```bash
 $ simpledoc.py --config=my_config.ini
 ```
 
