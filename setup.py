@@ -19,9 +19,10 @@ setup(
     author='Michael Connor',
     author_email='michaelconnor00@gmail.com',
     py_modules=find_packages(exclude=['tests*']),
+    install_requires=[''],
     include_package_data=True,
     classifiers=[
-        'Development Status :: 5 - Production/Stable',
+        'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',
         'Natural Language :: English',
         'License :: OSI Approved :: MIT License',
@@ -30,8 +31,8 @@ setup(
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.3',
+        'Programming Language :: Python :: 3',  # TODO make compatible
+        'Programming Language :: Python :: 3.3',  # TODO make compatible
         'Topic :: Software Development :: Libraries :: Python Modules',
     ],
 )
