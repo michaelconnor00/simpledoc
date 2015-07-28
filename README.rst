@@ -14,21 +14,19 @@ sudo pip install -i https://testpypi.python.org/pypi simpledoc
 Typical Usage
 -------------
 
-```config
-[controllers.api]
-document_name = README.md
+.. code-block::
+    [controllers.api]
+    document_name = README.md
 
-[services]
-include_classes = False
-include_functions = False
-document_name = README.md
-```
+    [services]
+    include_classes = False
+    include_functions = False
+    document_name = README.md
 
 Then run the simpledoc command.
 
-```bash
-$ simpledoc.py --config=my_config.ini
-```
+.. code-block::
+   $ simpledoc.py --config=my_config.ini
 
 The output will be a README.md file with all the docstrings in the modules `controllers.api` and `services`.
 
