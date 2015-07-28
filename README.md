@@ -3,6 +3,12 @@
 
 Simpledoc is tool to create markdown (.md) files from your projects docstrings. The only requirments are to have a config file and and simpledoc installed. Then running the command will traverse your project modules and pull all the docstrings.
 
+##Test Installation
+
+```bash
+sudo pip install -i https://testpypi.python.org/pypi simpledoc
+```
+
 ##Typical Usage
 
 ```config

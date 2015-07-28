@@ -9,7 +9,7 @@ def read(*paths):
 
 setup(
     name='simpledoc',
-    version='0.1.0',
+    version='0.1.1',
     description='Generate markdown from python docstrings.',
     long_description=(read('README.rst') + '\n\n' +
                       read('HISTORY.rst') + '\n\n' +
@@ -35,4 +35,9 @@ setup(
         'Programming Language :: Python :: 3.3',  # TODO make compatible
         'Topic :: Software Development :: Libraries :: Python Modules',
     ],
+    entry_points={
+        'console_scripts': [
+            'simpledoc = simpledoc.simpledoc:main',
+        ]
+      }
 )
